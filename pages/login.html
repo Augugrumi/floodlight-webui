@@ -83,9 +83,9 @@
 
     <script type="text/javascript">
 
-        var url = window.location.host.split(':');
-        var ip = url[0];
-        var port = url[1];
+        var ip = window.location.host.split(':')[0];
+        var port = location.port || 
+					(location.protocol === 'https:' ? '443' : '80');
 
         $.cookie('cip', ip, { expires: 7 });
         $.cookie('cport', port, { expires: 7 });
